@@ -28,7 +28,7 @@ localparam[1:0]
     ONE     = 2'b10;    
 
 reg[1:0] level_reg, level_next;
-reg[3:0] s_reg, s_next;
+reg[7:0] s_reg, s_next;
 reg[7:0] num_reg, num_next;
 reg[31:0] data_reg, data_next;
 reg[14:0] addr_reg, addr_next;
@@ -121,7 +121,7 @@ always @(*)
             FINISH  :
                 begin
                     trigger     = 1'b1;
-                    if(s_reg == 10-1)
+                    if(s_reg == 100-1)
                         state_next = IDLE;
                     else
                         s_next = s_reg + 1;                
